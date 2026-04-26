@@ -214,6 +214,34 @@ Without this, training will log to the local `./mlruns` directory, bypassing the
 
 ---
 
+## Acknowledgements
+
+This project builds on pretrained backbones and open-source tooling from the broader ML and wildlife re-identification community.
+
+### Backbones
+
+All backbones are loaded via [timm](https://github.com/huggingface/pytorch-image-models) with their original pretrained weights.
+
+- **InceptionNeXt** (default) — Yu, W., Zhou, P., Yan, S., & Wang, X. (2024). *InceptionNeXt: When Inception Meets ConvNeXt.* CVPR 2024. [arXiv:2303.16900](https://arxiv.org/abs/2303.16900)
+- **ResNet-50d** — He, K., Zhang, X., Ren, S., & Sun, J. (2016). *Deep Residual Learning for Image Recognition.* CVPR 2016. [arXiv:1512.03385](https://arxiv.org/abs/1512.03385). The `-d` variant follows He, T. et al. (2018). *Bag of Tricks for Image Classification with Convolutional Neural Networks.* [arXiv:1812.01187](https://arxiv.org/abs/1812.01187)
+- **Swin Transformer** — Liu, Z., Lin, Y., Cao, Y., Hu, H., Wei, Y., Zhang, Z., Lin, S., & Guo, B. (2021). *Swin Transformer: Hierarchical Vision Transformer using Shifted Windows.* ICCV 2021. [arXiv:2103.14030](https://arxiv.org/abs/2103.14030)
+- **MegaDescriptor** — Čermák, V., Picek, L., Adam, L., & Papafitsoros, K. (2024). *WildlifeDatasets: An Open-Source Toolkit for Animal Re-Identification.* WACV 2024. Weights: [`BVRA/MegaDescriptor-L-224`](https://huggingface.co/BVRA/MegaDescriptor-L-224)
+- **ViT-B/16** — Dosovitskiy, A., Beyer, L., Kolesnikov, A., Weissenborn, D., Zhai, X., Unterthiner, T., Dehghani, M., Minderer, M., Heigold, G., Gelly, S., Uszkoreit, J., & Houlsby, N. (2021). *An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale.* ICLR 2021. [arXiv:2010.11929](https://arxiv.org/abs/2010.11929)
+- **ViT-DINO** — Caron, M., Touvron, H., Misra, I., Jégou, H., Mairal, J., Bojanowski, P., & Joulin, A. (2021). *Emerging Properties in Self-Supervised Vision Transformers.* ICCV 2021. [arXiv:2104.14294](https://arxiv.org/abs/2104.14294)
+- **DenseNet-121** (used inside `DenseVit`) — Huang, G., Liu, Z., van der Maaten, L., & Weinberger, K. Q. (2017). *Densely Connected Convolutional Networks.* CVPR 2017. [arXiv:1608.06993](https://arxiv.org/abs/1608.06993)
+- **DenseVit hybrid architecture** — adapted from He, K., Zhao, F., Wang, Z., Cao, X., Yan, F., Liu, J., & Wang, J. (2023). *Animal re-identification algorithm for posture diversity.* Ecological Informatics. [doi:10.1016/j.ecoinf.2023.102334](https://doi.org/10.1016/j.ecoinf.2023.102334)
+
+### Tooling
+
+- [**timm**](https://github.com/huggingface/pytorch-image-models) — Wightman, R. (2019). *PyTorch Image Models.*
+- [**pytorch-metric-learning**](https://github.com/KevinMusgrave/pytorch-metric-learning) — Musgrave, K., Belongie, S., & Lim, S.-N. (2020). *PyTorch Metric Learning.* [arXiv:2008.09164](https://arxiv.org/abs/2008.09164)
+- [**wildlife-tools**](https://github.com/WildlifeDatasets/wildlife-tools) and [**wildlife-datasets**](https://github.com/WildlifeDatasets/wildlife-datasets) — Čermák et al. (2024), as cited above.
+- [**Hydra**](https://hydra.cc/) — Yadan, O. (2019). *Hydra — A framework for elegantly configuring complex applications.* Facebook AI Research.
+- [**MLflow**](https://mlflow.org/) — Zaharia, M. et al. (2018). *Accelerating the Machine Learning Lifecycle with MLflow.* IEEE Data Eng. Bull.
+
+
+---
+
 ## License
 
 Apache 2.0 — Copyright © Landesjagdverband Schleswig-Holstein e.V.
