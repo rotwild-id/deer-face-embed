@@ -2,7 +2,7 @@
 
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
 [![Python 3.12+](https://img.shields.io/badge/python-3.12+-blue.svg)](https://www.python.org/downloads/)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.placeholder.svg)](https://doi.org/10.5281/zenodo.placeholder)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19793946.svg)](https://doi.org/10.5281/zenodo.19793946)
 
 Metric learning model for individual red deer identification from facial images. Trains a ViT or CNN backbone with metric-learning losses (default: triplet) to produce L2-normalized face embeddings, enabling re-identification across images of deer.
 
