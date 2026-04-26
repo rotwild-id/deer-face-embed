@@ -204,10 +204,10 @@ Without this, training will log to the local `./mlruns` directory, bypassing the
 ```bibtex
 @software{deer_face_embed,
   author    = {Schulze Buschhoff, Jonathan},
-  title     = {deer-face-embed: Metric learning for red deer re-identification},
-  year      = {2025},
+  title     = {Rotwild-ID deer-face-embed: Metric learning for red deer re-identification},
+  year      = {2026},
   publisher = {Zenodo},
-  doi       = {10.5281/zenodo.placeholder},
+  doi       = {10.5281/zenodo.19793946},
   url       = {https://github.com/rotwild-id/deer-face-embed}
 }
 ```
