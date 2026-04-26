@@ -1,0 +1,9 @@
+# @package job.embedder_config.backbone_freeze
+# Two-phase fine-tuning: group 3 first, then swap to group 2.
+# Adapts top layers early, then shifts to mid-level features.
+# Never unfreezes both at once (8 GB VRAM safe).
+initial:
+  trainable_groups: [3]
+transition_epoch: 60
+final:
+  trainable_groups: [2]

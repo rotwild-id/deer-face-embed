@@ -1,0 +1,31 @@
+defaults:
+  - job: training
+  - freeze: progressive_g3
+  - _self_
+
+# Backbone freeze strategy sweep.
+# All strategies respect 8 GB VRAM — groups 2 and 3 are never unfrozen simultaneously.
+#
+# Strategies:
+#   head_only        — Fully frozen backbone (baseline)
+#   progressive_g3   — Frozen → unfreeze top layers (group 3) at epoch 30
+#   progressive_g2   — Frozen → unfreeze mid layers (group 2) at epoch 30
+#   g3_from_start    — Top layers trainable from epoch 0
+#   g3_then_g2       — Top layers first, swap to mid layers at epoch 60
+#   early_layers     — Groups 0+1 trainable (low-level feature adaptation)
+#
+# Run with: deer-face-embed --config-name=freeze_sweep --multirun
+job:
+
+  run_config:
+    name: "Freeze Sweep - ${hydra:runtime.choices.freeze}"
+    tags:
+      experiment: "Backbone Freeze Sweep"
+  mlflow_service:
+    # groups all runs in one experiment
+    experiment_name: "Backbone Freeze Sweep"
+
+hydra:
+  sweeper:
+    params:
+      freeze: head_only,progressive_g3,progressive_g2,g3_from_start,g3_then_g2,early_layers

@@ -1,0 +1,102 @@
+
+KIND: TrainingJob
+dataset_loader:
+  KIND: "KaggleDatasetLoader"
+  image_quality_label_included:
+  - "excellent"
+  - "good"
+  - "ok"
+  - "poor"
+  face_chip_method: mask
+# # Data split 
+splitting_config:
+  ratio_train: 0.75
+  random_state: 4200
+# Train
+embedder_config:
+  # required params
+  KIND: "inception_next"
+  pretrained: true
+  embedding_size: 128
+  # overwrite optional params
+  intermediate_size: 1024
+  batch_size: 32
+  backbone_freeze:
+    #  g3 then g2
+    initial:
+      trainable_groups: [3]
+    transition_epoch: 60
+    final:
+      trainable_groups: [2]
+training_config:
+  # required params
+  num_epochs: 240
+  # training components
+  loss:
+    KIND: "TripletLoss"
+    margin: 0.2
+  miner:
+    KIND: "TripletMarginMiner"
+    margin: 0.2
+    type_of_triplets: "all"
+    distance:
+      KIND: "LpDistance"
+  optimizer:
+    KIND: "Adam"
+    learning_rate: 0.001
+  # augmentation: "slightly" — minimal augmentation, no grayscale
+  augmentation_config:
+    augmentations:
+      - KIND: "RandomHorizontalFlip"
+        p: 0.5
+      - KIND: "RandomPhotometricDistort"
+        brightness: [0.95, 1.05]
+        contrast: [0.85, 1.15]
+        saturation: [0.9, 1.1]
+        hue: [-0.01, 0.01]
+        p: 0.5
+      - KIND: "RandomGaussianBlur"
+        kernel_size: [3, 7]
+        sigma: [0.1, 2.0]
+        p: 0.3
+      - KIND: "RandomErasing"
+        p: 0.2
+        scale: [0.02, 0.1]
+        ratio: [0.3, 3.3]
+        value: 0
+  # training mechanisms
+  sampler:
+    m: 4
+  warmup:
+    warmup_epochs: 15
+    warmup_start_lr: 1.0e-7
+  lr_scheduler:
+    KIND: "CosineAnnealingWarmRestarts"
+    T_0: 30
+    T_mult: 2
+    eta_min: 1.0e-7
+  gradient_clip_val: 1.0
+  early_stopping:
+    patience: 60
+    min_delta: 0.001
+    monitor: precision_at_1.val
+    mode: max
+    start_from_epoch: 120
+    restore_best_weights: true
+  # overwrite optional params
+  validation_split: 0.2
+  split_seed: 123
+  dropout_rate: 0.3
+# Run tracking
+run_config:
+  name: "A default config training run"
+  # optionals
+  description: "A Rotwild-ID training run, using default config"
+  tags: 
+    "framework": "pytorch"
+  log_system_metrics: True
+
+# uncomment if you use mlflow in docker. 
+# mlflow_service:
+#   tracking_uri: http://127.0.0.1:5001
+#   registry_uri: http://127.0.0.1:5001

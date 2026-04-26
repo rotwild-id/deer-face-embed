@@ -1,0 +1,6 @@
+# @package job.embedder_config.backbone_freeze
+# Groups 0+1 (early layers) trainable, rest frozen.
+# Low VRAM cost (early layers are small). Tests if low-level feature
+# adaptation (edges, textures) helps for deer face recognition.
+initial:
+  trainable_groups: [0, 1]

@@ -1,0 +1,5 @@
+# @package job.embedder_config.backbone_freeze
+# Group 3 (top layers) trainable from epoch 0, rest frozen.
+# No staged unfreezing — head + top layers learn together from the start.
+initial:
+  trainable_groups: [3]

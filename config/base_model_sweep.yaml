@@ -1,0 +1,27 @@
+defaults:
+  - job: training
+  - _self_
+
+# Base model comparison sweep (4-group architectures).
+# VRAM-validated configs on RTX 1080 8GB.
+# Run with: deer-face-embed --config-name=base_model_sweep --multirun
+# For DenseVit (8 groups) is skipped, must be run in a single run for comparision, since is has 8 groups. 
+job:
+  embedder_config:
+    embedding_size: 512
+    intermediate_size: 1024
+    batch_size: 32
+    pretrained: true
+  run_config:
+    name: "Base Model Sweep - ${job.embedder_config.KIND}"
+    tags:
+      experiment: "Base Model Sweep"
+  mlflow_service:
+    # groups all runs in one experiment
+    experiment_name: "Base Model Sweep"
+
+# Hydra multirun: sweep over 4-group base model architectures
+hydra:
+  sweeper:
+    params:
+      job.embedder_config.KIND: ResNet,inception_next,Swin,VitBase,VitDino

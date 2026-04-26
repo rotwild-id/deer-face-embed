@@ -1,0 +1,8 @@
+# @package job.embedder_config.backbone_freeze
+# Progressive unfreezing: frozen → group 3 (top layers).
+# Standard transfer learning: first fit the head, then fine-tune high-level features.
+initial:
+  trainable_groups: []
+transition_epoch: 30
+final:
+  trainable_groups: [3]

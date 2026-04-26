@@ -1,0 +1,26 @@
+defaults:
+  - job: training
+  - augmentation: aggressive  # Default; sweep overrides this
+  - _self_
+
+# Augmentation sweep using default training
+# Tests which augmentation strategy best closes the train-val gap.
+#
+# Run with: deer-face-embed --config-name=augmentation_sweep --multirun
+job:
+  training_config:
+
+  run_config:
+    name: "Augmentation Sweep - ${hydra:runtime.choices.augmentation}"
+    description: ""
+    tags:
+      experiment: "Augmentation Sweep"
+  mlflow_service:
+    # groups all runs in one experiment
+    experiment_name: "Augmentation Sweep"
+
+# Hydra multirun: sweep over augmentation configs
+hydra:
+  sweeper:
+    params:
+      augmentation: slightly,conservative

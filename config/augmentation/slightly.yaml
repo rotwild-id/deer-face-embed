@@ -1,0 +1,19 @@
+# @package job.training_config.augmentation_config
+augmentations:
+  - KIND: RandomHorizontalFlip
+    p: 0.5
+  - KIND: RandomPhotometricDistort
+    brightness: [0.95, 1.05]
+    contrast: [0.85, 1.15]
+    saturation: [0.9, 1.1]  # tightened
+    hue: [-0.01, 0.01]
+    p: 0.5
+  # grayscale removed entirely
+  - KIND: RandomGaussianBlur
+    kernel_size: [3, 7]
+    sigma: [0.1, 2.0]
+    p: 0.3
+  - KIND: RandomErasing
+    p: 0.2  # lower than default
+    scale: [0.02, 0.10]
+    value: 0

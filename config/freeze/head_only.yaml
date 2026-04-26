@@ -1,0 +1,5 @@
+# @package job.embedder_config.backbone_freeze
+# Fully frozen backbone — only the embedding head is trained.
+# Baseline: fast, low VRAM, tests how far pretrained features alone get you.
+initial:
+  trainable_groups: []

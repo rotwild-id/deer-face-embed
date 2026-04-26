@@ -1,0 +1,27 @@
+defaults:
+  - job: training
+  - _self_
+
+# Face chip extraction method sweep.
+# Tests which face chip extraction method produces better embeddings.
+#
+# Methods:
+#   mask             — Crop using segmentation mask
+#   landmark_affine  — Affine-align crop using facial landmarks
+#   landmark_crop    — Simple landmark-guided crop
+#
+# Run with: deer-face-embed --config-name=face_chip_sweep --multirun
+job:
+  run_config:
+    name: "Face Chip Sweep - ${job.dataset_loader.face_chip_method}"
+    tags:
+      experiment: "Face Chip Sweep"
+  mlflow_service:
+    # groups all runs in one experiment
+    experiment_name: "Face Chip Sweep"
+
+# Hydra multirun: sweep over face chip extraction methods
+hydra:
+  sweeper:
+    params:
+      job.dataset_loader.face_chip_method: mask,landmark_affine,landmark_crop
