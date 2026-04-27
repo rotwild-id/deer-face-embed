@@ -128,15 +128,15 @@ deer-face-embed dataset_loader.KIND=LocalDatasetLoader dataset_loader.dataset_lo
 
 ### Available Models
 
-| KIND | Architecture |
-|---|---|
-| `inception_next` | InceptionNeXt (default: base) |
-| `ResNet` | ResNet-50d |
-| `Swin` | Swin Transformer |
-| `MegaDescriptor` | MegaDescriptor-L |
-| `VitDino` | ViT-S/16 with DINO weights |
-| `VitBase` | ViT-B/16 |
-| `DenseVit` | DenseNet121 + ViT hybrid |
+| KIND | Architecture | Paper |
+|---|---|---|
+| `inception_next` | InceptionNeXt (default: base) | Yu, W. et al. (2024): *InceptionNeXt: When Inception Meets ConvNeXt.* [arXiv:2303.16900](https://arxiv.org/abs/2303.16900) |
+| `ResNet` | ResNet-50d | He, K. et al. (2016): *Deep Residual Learning for Image Recognition.* [arXiv:1512.03385](https://arxiv.org/abs/1512.03385). The `-d` variant: He, T. et al. (2018): *Bag of Tricks for Image Classification with Convolutional Neural Networks.* [arXiv:1812.01187](https://arxiv.org/abs/1812.01187) |
+| `Swin` | Swin Transformer | Liu, Z. et al. (2021): *Swin Transformer: Hierarchical Vision Transformer using Shifted Windows.* [arXiv:2103.14030](https://arxiv.org/abs/2103.14030) |
+| `MegaDescriptor` | MegaDescriptor-L | Čermák, V. et al. (2024): *WildlifeDatasets: An Open-Source Toolkit for Animal Re-Identification.* WACV 2024. Weights: [`BVRA/MegaDescriptor-L-224`](https://huggingface.co/BVRA/MegaDescriptor-L-224) |
+| `VitDino` | ViT-S/16 with DINO weights | Caron, M. et al. (2021): *Emerging Properties in Self-Supervised Vision Transformers.* [arXiv:2104.14294](https://arxiv.org/abs/2104.14294) |
+| `VitBase` | ViT-B/16 | Dosovitskiy, A. et al. (2021): *An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale.* [arXiv:2010.11929](https://arxiv.org/abs/2010.11929) |
+| `DenseVit` | DenseNet121 + ViT hybrid | Huang, G. et al. (2017): *Densely Connected Convolutional Networks.* [arXiv:1608.06993](https://arxiv.org/abs/1608.06993). Hybrid architecture: He, K. et al. (2023): *Animal re-identification algorithm for posture diversity.* [doi:10.1016/j.ecoinf.2023.102334](https://doi.org/10.1016/j.ecoinf.2023.102334) |
 
 All models use a pretrained [timm](https://github.com/huggingface/pytorch-image-models) backbone with a custom embedding head (linear → ReLU → dropout → linear → BatchNorm → L2 normalize).
 
