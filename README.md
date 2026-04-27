@@ -1,3 +1,4 @@
+<img width="357" height="435" alt="Deutschland_Nationale_Delegation_DE" src="" />
 # Rotwild-ID: deer-face-embed
 
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
@@ -216,7 +217,7 @@ Without this, training will log to the local `./mlruns` directory, bypassing the
 # Funding
 The project was carried out by the "[Landesjagdverband Schleswig-Holstein e.V.](https://ljv-sh.de/)" (Schleswig-Holstein Hunting Association) and funded by the [State of Schleswig-Holstein](https://www.schleswig-holstein.de/DE/landesregierung/ministerien-behoerden/I/_startseite/Artikel2024/I/240308_cds_rotwild) and the "Verein zur Erhaltung des Wildes und der Jagd im [CIC e. V.](https://cic-wildlife.de/)" (Association for the Conservation of Game and Hunting in the CIC). 
 
-|  ![](https://www.googleapis.com/download/storage/v1/b/kaggle-user-content/o/inbox%2F3584116%2F16123e77bb8daa681979bf96b8e06c2d%2FSchleswig-Holstein.svg?generation=1777275388351223&alt=media) |  ![](https://www.googleapis.com/download/storage/v1/b/kaggle-user-content/o/inbox%2F3584116%2Fe24218d2a503471c1812d9fa43c4590b%2FDeutschland_Nationale_Delegation_DE.jpg?generation=1777275407557371&alt=media) |![](https://www.googleapis.com/download/storage/v1/b/kaggle-user-content/o/inbox%2F3584116%2Ff72d2dda694df36b306fe97f081206a2%2Flogo_ljv2x.png?generation=1777275458135896&alt=media) | 
+| ![](https://github.com/user-attachments/assets/4912bd02-0d58-4429-8558-c6cafdeba795) |  ![](https://github.com/user-attachments/assets/764ba180-2d21-4ac4-8a18-d29c6c48a65f) |![](https://github.com/user-attachments/assets/a110ce10-5293-499f-bedd-8ece1eb966ed) | 
 |---|---|---|
 ||||
 
