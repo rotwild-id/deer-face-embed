@@ -1,4 +1,3 @@
-<img width="357" height="435" alt="Deutschland_Nationale_Delegation_DE" src="" />
 # Rotwild-ID: deer-face-embed
 
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
